@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>T-SHOP Login</title>
+        {%load static}
+        <link rel="stylesheet"href="{% static 'login.css'%}"/>
+    </head>
+    <body>
+        <div class="center">
+            <h1>Login</h1>
+        <form  action="login.html" method="POST">
+            <div class="box">
+            <input type="Email"name=""placeholder="Email"id="Email" required>
+            <input type="password"name=""placeholder="password"id="password" required>
+            </div>
+            <div class="pass">Forgot password?</div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member<a href="signup.html">SignUp</a>
+            </div>
+        </form>
+        </div>
+     <script src="home.js"></script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include your JavaScript file -->
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+    <section id="header">
+        <!-- Header content here -->
+        <img src="{% static 'photo/T logo.jpg' %}" alt="" class="logo" />
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="#hero">Home</a></li>
+                <li><a href="#feature">Services</a></li>
+                <li><a href="#product1">Clothes</a></li>
+                <li><a href="#product2">Shoes</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="{% url 'cart'%}"><i class="fas fa-shopping-bag"></i> <span id="cart-item-count">0</span></a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="cart" class="section-p1">
+        <h1 class="heading"><span>Your Cart</span></h1>
+        <ul id="cart-items">
+            <!-- Selected products will be displayed here -->
+        </ul>
+    </section>
+
+
+</body>
+</html>

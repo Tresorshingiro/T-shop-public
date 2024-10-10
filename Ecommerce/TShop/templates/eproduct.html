@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>T-Shop</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'Home.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Include your JavaScript file -->
+        <script src="{% static 'script.js' %}"></script>
+    </head>
+    <body>
+        <section id="header">
+        <img src="{% static 'photo/T logo.jpg' %}" alt="" class="logo"/>
+            <div>
+                <ul id="navbar">
+                    <li><a class="active" href="#hero">Home</a></li>
+                    <li><a href="#feature">Services</a></li>
+                    <li><a href="#product1">Clothes</a></li>
+                    <li><a href="#product2">Shoes</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{% url 'cart'%}"><i class="fas fa-shopping-bag"></i> <span id="cart-item-count">0</span></a></li>
+                </ul>
+            </div>
+        </section>
+        <section id="prodetails" class="section-p1">
+            <div class="single-pro-image">
+                <img src="{{product.image.url}}" alt="{{product.name}}" width="100%" id="MainImg">
+
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="{% static 'photo/shirt6.jfif' %}" alt="" width="100%" class="small-img" onclick="changeMainImage(this)">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{% static 'photo/shirt7.jfif' %}" alt="" width="100%" class="small-img" onclick="changeMainImage(this)">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{% static 'photo/shirt8.jfif' %}" alt="" width="100%" class="small-img" onclick="changeMainImage(this)">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{% static 'photo/shirt9.jpg' %}" alt="" width="100%" class="small-img" onclick="changeMainImage(this)">
+                    </div>
+                </div>
+            </div>
+            <div class="single-pro-details">
+                <h6>Home / T-Shirt</h6>
+                <h4>{{product.name}}</h4>
+                <h2>${{product.price}}</h2>
+                <select>
+                    <option>Select size</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                    <option>Small</option>
+                    <option>Large</option>
+                </select>
+                <input type="number" value="1">
+                <button><a href="{% url 'cart' %}" class="add-to-cart" data-name="{{ product.name }}" data-price="{{ product.price }}">Add to cart</a></button>
+                <h4>Product details</h4>
+                <span>{{product.description}}</span>
+            </div>
+        </section>
+
+        <section id="product1" class="section-p1">
+            <h1 class="heading"><span>Featured Products</span></h1>
+            <p>Summer new collection design</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <a href="{% url 'aproduct' product.id %}">
+                    <img src="{% static 'photo/shirt1.jfif' %}" alt=""/>
+                <div class="des">
+                    <span>Nike</span>
+                    <h5>{{product.name}}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>${{product.price}}</h4>
+                </div>
+                <div class="icons">
+                    <a href="cart.html" class="add-to-cart" data-name="{{product.name}}" data-price="{{product.price}}">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+                </a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'bproduct' product.id %}">
+                    <img src="{% static 'photo/shirt2.jfif' %}" alt=""/>
+                <div class="des">
+                    <span>Nike</span>
+                    <h5>{{product.name}}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>${{product.price}}</h4>
+                </div>
+                <div class="icons">
+                    <a href="cart.html" class="add-to-cart" data-name="{{product.name}}" data-price="{{product.price}}">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+                </a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'cproduct' product.id %}">
+                    <img src="{% static 'photo/shirt3.jfif' %}" alt=""/>
+                <div class="des">
+                    <span>Nike</span>
+                    <h5>{{product.name}}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>${{product.price}}</h4>
+                </div>
+                <div class="icons">
+                    <a href="cart.html" class="add-to-cart" data-name="{{product.name}}" data-price="{{product.price}}">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+                </a>
+                </div>
+                <div class="pro">
+                    <a href="{% url 'dproduct' product.id %}">
+                    <img src="{% static 'photo/shirt4.jpg' %}" alt=""/>
+                <div class="des">
+                    <span>Nike</span>
+                    <h5>{{product.name}}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>${{product.price}}</h4>
+                </div>
+                <div class="icons">
+                    <a href="cart.html" class="add-to-cart" data-name="{{product.name}}" data-price="{{product.price}}">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+        </section>
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="{% static 'photo/T logo.jpg' %}" alt=""/>
+                <h4>Contacts</h4>
+                <p><strong>Address:</strong>Kigali-Rwanda</p>
+                <p><strong>Phone:</strong>+250788349679/+250785348293</p>
+                <p><strong>Hours:</strong>8AM-9PM,Mon-Sun</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-printest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & condition</a>
+                <a href="#">Contant us</a>
+            </div>
+
+            <div class="col">
+                <h4>My account</h4>
+                <a href="#">Sign in</a>
+                <a href="#">View  cart</a>
+                <a href="#">my wishlist</a>
+                <a href="#">Track my order</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App store or Google Play </p>
+                <div class="row">
+                    <img src="{% static 'photo/app.jpg' %}" alt=""/>
+                    <img src="{% static 'photo/google.png' %}" alt=""/>
+                </div>
+                <p>Secured payment Gateways</p>
+                <img src="{% static 'photo/pay.png' %}" alt=""/>
+            </div>
+            <div class="copyright">
+                <p>@2022 created by Tresor shingiro</p>
+            </div>
+        </footer>
+    </body>
+</html>
